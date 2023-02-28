@@ -6,7 +6,7 @@
 Что вы думаете? Выполнится ли .catch? Поясните свой ответ.
 ```javascript
 new Promise(function(resolve, reject) {
-  setTimeout(() =&gt; {
+  setTimeout(() => {
     throw new Error("Whoops!");
   }, 1000);
 }).catch(alert);

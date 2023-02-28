@@ -111,7 +111,7 @@ function makeObservable(target) {
 let user = {};
 user = makeObservable(user);
 
-user.observe((key, value) =&gt; {
+user.observe((key, value) => {
   alert(`SET ${key}=${value}`);
 });
 

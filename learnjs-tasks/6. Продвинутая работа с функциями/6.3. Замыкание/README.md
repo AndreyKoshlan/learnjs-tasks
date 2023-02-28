@@ -204,10 +204,10 @@ let users = [
 Обычный способ был бы таким:
 ```javascript
 // по имени (Ann, John, Pete)
-users.sort((a, b) =&gt; a.name &gt; b.name ? 1 : -1);
+users.sort((a, b) => a.name &gt; b.name ? 1 : -1);
 
 // по возрасту (Pete, Ann, John)
-users.sort((a, b) =&gt; a.age &gt; b.age ? 1 : -1);
+users.sort((a, b) => a.age &gt; b.age ? 1 : -1);
 ```
 Можем ли мы сделать его короче, например вот таким?
 ```javascript

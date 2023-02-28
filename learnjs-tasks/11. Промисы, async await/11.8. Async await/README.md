@@ -9,7 +9,7 @@
 ```javascript
 function loadJson(url) {
   return fetch(url)
-    .then(response =&gt; {
+    .then(response => {
       if (response.status == 200) {
         return response.json();
       } else {
@@ -51,7 +51,7 @@ class HttpError extends Error {
 
 function loadJson(url) {
   return fetch(url)
-    .then(response =&gt; {
+    .then(response => {
       if (response.status == 200) {
         return response.json();
       } else {
@@ -65,11 +65,11 @@ function demoGithubUser() {
   let name = prompt("Введите логин?", "iliakan");
 
   return loadJson(`https://api.github.com/users/${name}`)
-    .then(user =&gt; {
+    .then(user => {
       alert(`Полное имя: ${user.name}.`);
       return user;
     })
-    .catch(err =&gt; {
+    .catch(err => {
       if (err instanceof HttpError &amp;&amp; err.response.status == 404) {
         alert("Такого пользователя не существует, пожалуйста, повторите ввод.");
         return demoGithubUser();
@@ -127,7 +127,7 @@ demoGithubUser();
 Есть «обычная» функция. Как можно внутри неё получить результат выполнения async–функции?
 ```javascript
 async function wait() {
-  await new Promise(resolve =&gt; setTimeout(resolve, 1000));
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
   return 10;
 }

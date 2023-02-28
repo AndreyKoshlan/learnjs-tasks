@@ -44,7 +44,7 @@ printNumbers2(5, 10); // Используя рекурсивный setTimeout
 ```javascript
 let i = 0;
 
-setTimeout(() =&gt; alert(i), 100); // ?
+setTimeout(() => alert(i), 100); // ?
 
 // предположим, что время выполнения этой функции &gt;100 мс
 for(let j = 0; j &lt; 100000000; j++) {
