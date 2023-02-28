@@ -1,0 +1,39 @@
+function f(a) {
+  console.log(a)
+}
+
+function throttle(f, ms) {
+	let isReady = true;
+	let taskThis = null;
+	let taskArguments = null;
+
+	return function() {
+		if (!isReady) {
+			taskThis = this;
+			taskArguments = arguments;
+			return;
+		}
+		isReady = false;
+		f.apply(this, arguments);
+		setTimeout(function wait() {
+			if (!taskThis) {
+				isReady = true;
+				return;
+			}
+			f.apply(taskThis, taskArguments);
+			taskThis = null;
+			taskArguments = null;
+			setTimeout(wait, ms);
+		}, ms);
+	}
+}
+
+// f1000 передаёт вызовы f максимум раз в 1000 мс
+let f1000 = throttle(f, 1000);
+
+f1000(1); // показывает 1
+f1000(2); // (ограничение, 1000 мс ещё нет)
+f1000(3); // (ограничение, 1000 мс ещё нет)
+
+// когда 1000 мс истекли ...
+// ...выводим 3, промежуточное значение 2 было проигнорировано
